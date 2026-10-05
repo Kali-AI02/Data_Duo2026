@@ -1,0 +1,13 @@
+{
+  "validation_accuracy": 0.7062,
+  "per_class_accuracy": {
+    "Cassava Bacterial Blight (CBB)": 0.3988,
+    "Cassava Brown Streak Disease (CBSD)": 0.686,
+    "Cassava Green Mottle (CGM)": 0.4162,
+    "Cassava Mosaic Disease (CMD)": 0.8237,
+    "Healthy cassava leaf": 0.522
+  },
+  "training_count": 18187,
+  "validation_count": 3210,
+  "ood_threshold": 0.7961
+}
