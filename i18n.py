@@ -33,6 +33,13 @@ TEXT = {
     "District comparison": {"rw": "Kugereranya uturere"},
     "Cassava AI check": {"rw": "Isuzuma ry'imyumbati hakoreshejwe AI"},
     "Data & method": {"rw": "Amakuru n'uburyo"},
+    "Data assistant": {"rw": "Umufasha w'amakuru"},
+    "Ask Harvest Compass": {"rw": "Baza Harvest Compass"},
+    "Ask questions about the NISR crop estimates": {"rw": "Baza ibibazo ku mibare y'ubuhinzi ya NISR"},
+    "Answers use only the loaded NISR survey tables. Questions you leave unspecified use the current sidebar selections.": {"rw": "Ibisubizo bishingira gusa ku mbonerahamwe za NISR ziri muri porogaramu. Ibipimo utavuze bikoresha ibyatoranyijwe ku ruhande rw'ibumoso."},
+    "Ask a question about the crop data…": {"rw": "Baza ikibazo ku mibare y'ibihingwa…"},
+    "Clear conversation": {"rw": "Siba ibiganiro"},
+    "The assistant is limited to reported crop yields and production. It does not give disease diagnoses or treatment advice.": {"rw": "Uyu mufasha agarukira ku mibare yatangajwe y'umusaruro. Ntatanga isuzuma ry'indwara cyangwa inama zo kuvura."},
     "Estimated yield": {"rw": "Umusaruro kuri hegitari"},
     "kg per hectare · NISR estimate": {"rw": "kg kuri hegitari · imibare ya NISR"},
     "Change since 2023": {"rw": "Impinduka kuva mu 2023"},
@@ -135,7 +142,7 @@ TEXT = {
 }
 
 
-PAGES = ["Three-year view", "District map", "District comparison", "Cassava AI check", "Data & method"]
+PAGES = ["Three-year view", "District map", "District comparison", "Data assistant", "Cassava AI check", "Data & method"]
 
 CROP_RW = {
     "Maize": "Ibigori", "Bean": "Ibishyimbo", "Soybean": "Soja", "Cassava": "Imyumbati",

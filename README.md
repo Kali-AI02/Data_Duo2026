@@ -6,6 +6,7 @@ Harvest Compass is a Python and Streamlit dashboard for the NISR 2026 Agricultur
 
 - Filters SAS estimates by season, crop, year, and district.
 - Provides English and Kinyarwanda interface text and sidebar navigation.
+- Includes an offline data assistant that answers supported questions from the loaded NISR tables and links to the source report.
 - Shows a three-year yield trend for the selected district alongside NISR's national estimate when published.
 - Maps district yield or production estimates as a choropleth using the NISR district boundaries.
 - Screens an uploaded cassava leaf photo for four common disease categories or a healthy leaf.
@@ -69,6 +70,8 @@ District and year comparisons are descriptive. Changes or gaps identify patterns
 5. Paste that public URL into the NISR submission form together with the public GitHub URL.
 
 The project includes the trained model, annual SAS workbooks, district boundaries, and Python dependencies, so deployment does not need the 6.2 GB Kaggle ZIP or extracted image folder. The app needs network access only to install pinned dependencies during its cloud build; the dashboard itself reads project-local data and model files.
+
+The **Data assistant** page handles basic questions about crop yield, production, district rankings, and three-year trends. It uses the current sidebar selections for details not named in the question and links answers to the corresponding NISR report. It is a deterministic lookup helper, not a general-purpose AI model; it cannot explain causes, forecast outcomes, or provide crop-treatment advice.
 
 See [SUBMISSION_BRIEF.md](SUBMISSION_BRIEF.md) for the rubric-aligned project explanation, sources, validation results, limitations, and AI disclosure.
 

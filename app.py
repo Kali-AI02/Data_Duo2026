@@ -11,6 +11,7 @@ import torch.nn.functional as F
 from PIL import Image, UnidentifiedImageError
 
 from cassava_detector import CLASS_NAMES, MODEL_FILE, extract_embedding, load_model_bundle, prepare_image
+from data_assistant import MESSAGES as ASSISTANT_MESSAGES, answer_question
 from i18n import PAGES, class_label, crop_label, tr
 
 
@@ -468,6 +469,40 @@ if active_page == "Cassava AI check":
                         st.caption(tr("The similarity check can reject many unrelated images, but it cannot guarantee recognition of every non-cassava plant. Model confidence is not a disease probability.", language))
         except (UnidentifiedImageError, OSError):
             st.error(tr("This file could not be read as an image. Please upload a JPG, PNG, or WebP photo of a cassava leaf.", language))
+
+if active_page == "Data assistant":
+    st.markdown(f"### {tr('Ask Harvest Compass', language)}")
+    st.markdown(tr("Ask questions about the NISR crop estimates", language))
+    st.info(tr("Answers use only the loaded NISR survey tables. Questions you leave unspecified use the current sidebar selections.", language))
+    st.caption(tr("The assistant is limited to reported crop yields and production. It does not give disease diagnoses or treatment advice.", language))
+
+    if st.button(tr("Clear conversation", language), key="clear_data_assistant"):
+        st.session_state.data_assistant_history = []
+    history = st.session_state.setdefault("data_assistant_history", [])
+    for message in history:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+    if not history:
+        st.caption(ASSISTANT_MESSAGES["welcome"]["rw" if language == "rw" else "en"])
+
+    question = st.chat_input(tr("Ask a question about the crop data…", language))
+    if question:
+        history.append({"role": "user", "content": question})
+        with st.chat_message("user"):
+            st.markdown(question)
+        response = answer_question(
+            question,
+            yields,
+            production,
+            default_crop=crop,
+            default_district=district,
+            default_season=season,
+            default_year=focus_year,
+            language=language,
+        )
+        history.append({"role": "assistant", "content": response})
+        with st.chat_message("assistant"):
+            st.markdown(response)
 
 if active_page == "Data & method":
     st.markdown(f"### {tr('Data and method', language)}")
