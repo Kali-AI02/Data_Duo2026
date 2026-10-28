@@ -212,7 +212,9 @@ style = """
     .insight { background:__INSIGHT__; border-left:4px solid #77a33a; padding:1rem 1.1rem; border-radius:0 14px 14px 0; margin:.35rem 0; color:__INK__; }
     .source-note { font-size:.78rem; color:__MUTED__; padding-top:1rem; border-top:1px solid __BORDER__; }
     .st-key-harvest_chat_popover { position:fixed !important; right:1.5rem; bottom:1.5rem; z-index:10000; }
-    .st-key-harvest_chat_popover > div > button { border-radius:999px; box-shadow:0 8px 24px rgba(15,35,28,.28); }
+    .st-key-harvest_chat_popover [data-testid="stPopoverButton"] { background:#1749a3 !important; border:1px solid #1749a3 !important; border-radius:999px; box-shadow:0 8px 24px rgba(15,35,28,.28); }
+    .st-key-harvest_chat_popover [data-testid="stPopoverButton"], .st-key-harvest_chat_popover [data-testid="stPopoverButton"] * { color:#fff !important; fill:#fff !important; }
+    .st-key-harvest_chat_popover [data-testid="stPopoverButton"]:hover { background:#123c87 !important; border-color:#123c87 !important; }
     @media(max-width:700px) { .st-key-harvest_chat_popover { right:1rem; bottom:1rem; } }
     div[data-testid="stMetric"] { background:__CARD__; border:1px solid __BORDER__; border-radius:16px; padding:14px; }
     [data-testid="stWidgetLabel"] p, [data-testid="stMarkdownContainer"] p, [data-testid="stMarkdownContainer"] li { color:__INK__; }
@@ -318,6 +320,7 @@ production_value = float(prod.iloc[0]["Value"]) if not prod.empty else None
 
 with st.popover(
     tr("Ask Harvest Compass", language),
+    type="primary",
     icon=":material/chat:",
     help=tr("Ask questions about the NISR crop estimates", language),
     key="harvest_chat_popover",
