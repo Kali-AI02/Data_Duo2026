@@ -4,6 +4,8 @@
 
 Harvest Compass is a bilingual English/Kinyarwanda dashboard for comparing crop yield and production across Rwanda's districts, seasons, and years. It turns official Seasonal Agricultural Survey (SAS) tables into a district map, a district ranking, and a three-year trend. It also includes an experimental cassava-leaf image screening feature.
 
+**Live dashboard:** [harvest-compass-rwanda.streamlit.app](https://harvest-compass-rwanda.streamlit.app/)
+
 ## 1. Problem understanding and national relevance
 
 NISR publishes detailed agricultural survey tables, but it takes effort for a farmer, extension worker, or planner to compare a crop across years, seasons, and districts. Harvest Compass makes those comparisons easier to inspect and highlights differences that local teams may want to verify.

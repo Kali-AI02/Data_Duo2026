@@ -2,6 +2,8 @@
 
 Harvest Compass is a Python and Streamlit dashboard for the NISR 2026 Agriculture Productivity track. It brings together three NISR Seasonal Agricultural Surveys (SAS) so agricultural planners can compare district crop yield and production estimates across seasons and years.
 
+**Open the live dashboard:** [harvest-compass-rwanda.streamlit.app](https://harvest-compass-rwanda.streamlit.app/)
+
 ## What it does
 
 - Filters SAS estimates by season, crop, year, and district.
