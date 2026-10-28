@@ -211,6 +211,9 @@ style = """
     .section-sub { color:__MUTED__; margin:0 0 .9rem; }
     .insight { background:__INSIGHT__; border-left:4px solid #77a33a; padding:1rem 1.1rem; border-radius:0 14px 14px 0; margin:.35rem 0; color:__INK__; }
     .source-note { font-size:.78rem; color:__MUTED__; padding-top:1rem; border-top:1px solid __BORDER__; }
+    .st-key-harvest_chat_popover { position:fixed !important; right:1.5rem; bottom:1.5rem; z-index:10000; }
+    .st-key-harvest_chat_popover > div > button { border-radius:999px; box-shadow:0 8px 24px rgba(15,35,28,.28); }
+    @media(max-width:700px) { .st-key-harvest_chat_popover { right:1rem; bottom:1rem; } }
     div[data-testid="stMetric"] { background:__CARD__; border:1px solid __BORDER__; border-radius:16px; padding:14px; }
     [data-testid="stWidgetLabel"] p, [data-testid="stMarkdownContainer"] p, [data-testid="stMarkdownContainer"] li { color:__INK__; }
     [data-testid="stTabs"] button, [data-testid="stTabs"] button p { color:__INK__; }
@@ -312,6 +315,45 @@ prod = production[
     & production["Crop"].eq(crop) & production["District"].eq(district) & production["Value"].gt(0)
 ]
 production_value = float(prod.iloc[0]["Value"]) if not prod.empty else None
+
+with st.popover(
+    tr("Ask Harvest Compass", language),
+    icon=":material/chat:",
+    help=tr("Ask questions about the NISR crop estimates", language),
+    key="harvest_chat_popover",
+    width=360,
+):
+    st.markdown(f"### {tr('Ask Harvest Compass', language)}")
+    st.caption(tr("Answers use only the loaded NISR survey tables. Questions you leave unspecified use the current sidebar selections.", language))
+    st.caption(tr("The assistant is limited to reported crop yields and production. It does not give disease diagnoses or treatment advice.", language))
+    if st.button(tr("Clear conversation", language), key="clear_data_assistant"):
+        st.session_state.data_assistant_history = []
+    history = st.session_state.setdefault("data_assistant_history", [])
+    with st.container(height=340, border=False):
+        if not history:
+            with st.chat_message("assistant"):
+                st.markdown(ASSISTANT_MESSAGES["welcome"]["rw" if language == "rw" else "en"])
+        for message in history:
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
+    question = st.chat_input(tr("Ask a question about the crop data…", language), key="data_assistant_input")
+    if question:
+        history.append({"role": "user", "content": question})
+        response = answer_question(
+            question,
+            yields,
+            production,
+            default_crop=crop,
+            default_district=district,
+            default_season=season,
+            default_year=focus_year,
+            language=language,
+        )
+        history.append({"role": "assistant", "content": response})
+        with st.chat_message("user"):
+            st.markdown(question)
+        with st.chat_message("assistant"):
+            st.markdown(response)
 
 crop_text = crop_label(crop, language)
 st.markdown(f"#### {tr('{district} · {crop} · Season {season} · {year}', language, district=district, crop=crop_text, season=season, year=focus_year)}")
@@ -469,40 +511,6 @@ if active_page == "Cassava AI check":
                         st.caption(tr("The similarity check can reject many unrelated images, but it cannot guarantee recognition of every non-cassava plant. Model confidence is not a disease probability.", language))
         except (UnidentifiedImageError, OSError):
             st.error(tr("This file could not be read as an image. Please upload a JPG, PNG, or WebP photo of a cassava leaf.", language))
-
-if active_page == "Data assistant":
-    st.markdown(f"### {tr('Ask Harvest Compass', language)}")
-    st.markdown(tr("Ask questions about the NISR crop estimates", language))
-    st.info(tr("Answers use only the loaded NISR survey tables. Questions you leave unspecified use the current sidebar selections.", language))
-    st.caption(tr("The assistant is limited to reported crop yields and production. It does not give disease diagnoses or treatment advice.", language))
-
-    if st.button(tr("Clear conversation", language), key="clear_data_assistant"):
-        st.session_state.data_assistant_history = []
-    history = st.session_state.setdefault("data_assistant_history", [])
-    for message in history:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
-    if not history:
-        st.caption(ASSISTANT_MESSAGES["welcome"]["rw" if language == "rw" else "en"])
-
-    question = st.chat_input(tr("Ask a question about the crop data…", language))
-    if question:
-        history.append({"role": "user", "content": question})
-        with st.chat_message("user"):
-            st.markdown(question)
-        response = answer_question(
-            question,
-            yields,
-            production,
-            default_crop=crop,
-            default_district=district,
-            default_season=season,
-            default_year=focus_year,
-            language=language,
-        )
-        history.append({"role": "assistant", "content": response})
-        with st.chat_message("assistant"):
-            st.markdown(response)
 
 if active_page == "Data & method":
     st.markdown(f"### {tr('Data and method', language)}")

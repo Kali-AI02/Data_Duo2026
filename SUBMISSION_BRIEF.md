@@ -22,11 +22,11 @@ Yield is displayed in kg/ha and production in metric tonnes. Comparisons are des
 
 ## 3. Technology and innovation
 
-The prototype combines Python, Streamlit, Pandas, Plotly, GeoJSON, and PyTorch. Its main innovation is putting three-year, season-matched official district statistics and a spatial comparison in one interface, alongside a clearly separated cassava image-screening experiment. A deterministic bilingual data assistant answers supported questions from those NISR tables, attaches the relevant report, and refuses unsupported cause, forecast, and treatment questions. The UI supports English and Kinyarwanda and adapts to light or dark display mode.
+The prototype combines Python, Streamlit, Pandas, Plotly, GeoJSON, and PyTorch. Its main innovation is putting three-year, season-matched official district statistics and a spatial comparison in one interface, alongside a clearly separated cassava image-screening experiment. A floating deterministic bilingual data assistant answers supported questions from those NISR tables, attaches the relevant report, and refuses unsupported cause, forecast, and treatment questions. The UI supports English and Kinyarwanda and adapts to light or dark display mode.
 
 ## 4. Usability and design
 
-The sidebar groups language, theme, page navigation, and crop/season/year/district filters. The main pages provide a three-year trend, a choropleth district map, a district comparison, a bilingual data assistant, a cassava image uploader, and a data/method page. The map tooltip provides the selected estimate; the AI page shows a caution and validation results.
+The sidebar groups language, theme, page navigation, and crop/season/year/district filters. The main pages provide a three-year trend, a choropleth district map, a district comparison, a floating bilingual data assistant, a cassava image uploader, and a data/method page. The map tooltip provides the selected estimate; the AI page shows a caution and validation results.
 
 ## 5. Potential tangible impact
 

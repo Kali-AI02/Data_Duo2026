@@ -71,7 +71,7 @@ District and year comparisons are descriptive. Changes or gaps identify patterns
 
 The project includes the trained model, annual SAS workbooks, district boundaries, and Python dependencies, so deployment does not need the 6.2 GB Kaggle ZIP or extracted image folder. The app needs network access only to install pinned dependencies during its cloud build; the dashboard itself reads project-local data and model files.
 
-The **Data assistant** page handles basic questions about crop yield, production, district rankings, and three-year trends. It uses the current sidebar selections for details not named in the question and links answers to the corresponding NISR report. It is a deterministic lookup helper, not a general-purpose AI model; it cannot explain causes, forecast outcomes, or provide crop-treatment advice.
+The floating **Ask Harvest Compass** chat button stays in the lower-right corner and handles basic questions about crop yield, production, district rankings, and three-year trends. It uses the current sidebar selections for details not named in the question and links answers to the corresponding NISR report. It is a deterministic lookup helper, not a general-purpose AI model; it cannot explain causes, forecast outcomes, or provide crop-treatment advice.
 
 See [SUBMISSION_BRIEF.md](SUBMISSION_BRIEF.md) for the rubric-aligned project explanation, sources, validation results, limitations, and AI disclosure.
 
