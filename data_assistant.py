@@ -99,7 +99,9 @@ def answer_question(
     district = _detect(q, district_values) or default_district
     season_match = re.search(r"\bseason\s*([abc])\b|\bigihe(?:mbwe)?(?:\s+cya)?\s*([abc])\b", q)
     season = (season_match.group(1) or season_match.group(2)).upper() if season_match else default_season
-    year_match = re.search(r"\b(202[3-5])\b", q)
+    year_match = re.search(r"\b(20\d{2})\b", q)
+    if year_match and year_match.group(1) not in {"2023", "2024", "2025"}:
+        return MESSAGES["not_found"][lang]
     year = int(year_match.group(1)) if year_match else default_year
 
     is_production = any(term in q for term in ("production", "tonne", "tonnes", "metric ton", "umusaruro wose", "toni"))
