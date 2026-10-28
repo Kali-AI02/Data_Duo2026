@@ -215,6 +215,13 @@ style = """
     .st-key-harvest_chat_popover [data-testid="stPopoverButton"] { background:#1749a3 !important; border:1px solid #1749a3 !important; border-radius:999px; box-shadow:0 8px 24px rgba(15,35,28,.28); }
     .st-key-harvest_chat_popover [data-testid="stPopoverButton"], .st-key-harvest_chat_popover [data-testid="stPopoverButton"] * { color:#fff !important; fill:#fff !important; }
     .st-key-harvest_chat_popover [data-testid="stPopoverButton"]:hover { background:#123c87 !important; border-color:#123c87 !important; }
+    [data-testid="stPopoverBody"] { width:min(420px, calc(100vw - 24px)) !important; min-width:0 !important; max-width:calc(100vw - 24px) !important; max-height:78vh !important; overflow:auto !important; box-sizing:border-box; background:#10232b !important; color:#f4f8fb !important; border:1px solid #34515c !important; border-radius:18px !important; }
+    [data-testid="stPopoverBody"] h1, [data-testid="stPopoverBody"] h2, [data-testid="stPopoverBody"] h3, [data-testid="stPopoverBody"] p, [data-testid="stPopoverBody"] li, [data-testid="stPopoverBody"] label, [data-testid="stPopoverBody"] [data-testid="stMarkdownContainer"] *, [data-testid="stPopoverBody"] [data-testid="stCaptionContainer"] { color:#f4f8fb !important; }
+    [data-testid="stPopoverBody"] [data-testid="stCaptionContainer"] { color:#bdd0d8 !important; }
+    [data-testid="stPopoverBody"] [data-testid="stChatMessage"] { background:#19343f !important; border-radius:12px; padding:.25rem .65rem; }
+    [data-testid="stPopoverBody"] [data-testid="stButton"] button { background:#244552 !important; color:#fff !important; border:1px solid #4b6b77 !important; }
+    [data-testid="stPopoverBody"] textarea, [data-testid="stPopoverBody"] input { background:#19343f !important; color:#f4f8fb !important; border-color:#4b6b77 !important; }
+    [data-testid="stPopoverBody"] textarea::placeholder, [data-testid="stPopoverBody"] input::placeholder { color:#bdd0d8 !important; }
     @media(max-width:700px) { .st-key-harvest_chat_popover { right:1rem; bottom:1rem; } }
     div[data-testid="stMetric"] { background:__CARD__; border:1px solid __BORDER__; border-radius:16px; padding:14px; }
     [data-testid="stWidgetLabel"] p, [data-testid="stMarkdownContainer"] p, [data-testid="stMarkdownContainer"] li { color:__INK__; }
