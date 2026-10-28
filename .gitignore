@@ -7,3 +7,5 @@ __pycache__/
 .DS_Store
 *.zip
 data/cassava/train_images/
+data/cassava/train.csv
+data/cassava/label_num_to_disease_map.json

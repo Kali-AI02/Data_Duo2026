@@ -1,6 +1,7 @@
-streamlit>=1.50,<2.0
+--extra-index-url https://download.pytorch.org/whl/cpu
+streamlit==1.65.0
 pandas>=2.2,<4.0
 openpyxl>=3.1,<4.0
 plotly>=5.24,<7.0
-torch>=2.14,<3.0
-torchvision>=0.29,<1.0
+torch==2.14.1+cpu
+torchvision==0.29.1+cpu
