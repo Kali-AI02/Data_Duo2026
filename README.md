@@ -63,13 +63,6 @@ The script reports held-out validation accuracy and per-class accuracy. The trai
 
 District and year comparisons are descriptive. Changes or gaps identify patterns for follow-up; they do not establish why yields changed or prove an intervention caused an outcome. Check each NISR report for survey design, definitions, and uncertainty.
 
-## Deploy on Streamlit Community Cloud
-
-1. Push the public repository to GitHub.
-2. Sign in to [Streamlit Community Cloud](https://share.streamlit.io/) with GitHub and connect the account to public repositories.
-3. Create an app from `Kali-AI02/Data_Duo2026`, branch `main`, entrypoint `app.py`; choose Python 3.12 in advanced settings.
-4. Wait for the dependency build and app health check to finish, then open the generated `streamlit.app` URL and exercise each page on desktop and phone.
-5. Paste that public URL into the NISR submission form together with the public GitHub URL.
 
 The project includes the trained model, annual SAS workbooks, district boundaries, and Python dependencies, so deployment does not need the 6.2 GB Kaggle ZIP or extracted image folder. The app needs network access only to install pinned dependencies during its cloud build; the dashboard itself reads project-local data and model files.
 
