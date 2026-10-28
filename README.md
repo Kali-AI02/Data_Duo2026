@@ -72,6 +72,3 @@ The project includes the trained model, annual SAS workbooks, district boundarie
 
 See [SUBMISSION_BRIEF.md](SUBMISSION_BRIEF.md) for the rubric-aligned project explanation, sources, validation results, limitations, and AI disclosure.
 
-## AI assistance disclosure
-
-This repository was created with AI assistance. The team should review and understand the code and analysis, verify outputs against NISR publications, and disclose AI assistance in the competition submission as required by the competition rules.
