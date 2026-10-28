@@ -43,6 +43,4 @@ The impact is potential, not yet measured. Before operational use, the team shou
 - [NISR district boundary layer](https://gis.naeb.gov.rw/server/rest/services/Hosted/Administrative_Boundaries_WFL1/FeatureServer/0)
 - [Makerere University AI Lab / Kaggle Cassava Leaf Disease Classification](https://www.kaggle.com/competitions/cassava-leaf-disease-classification)
 
-## AI assistance and participant review
 
-AI tools assisted with code drafting, translation scaffolding, and project documentation. The team must review the code, verify every claim and source, and disclose AI assistance as required. The participants remain responsible for the submission and must ensure it is their original work. NISR's entry conditions also state that entering transfers the submitted work's intellectual property rights to NISR; both team members should read and understand those conditions before submitting.
